@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary-color: #1976d2; /* azul moderno */
+  --secondary-color: #f50057; /* rosa estilo Material UI */
+  --background-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+}
+
+body {
+  background: var(--background-color);
+  font-family: 'Roboto', Arial, sans-serif;
+  color: var(--text-color);
+  padding-top: 85px;
+}
+
+html{    
+  padding: 0;
+  height: 100%;  
+}
+
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.login,
+.sign-up {
+  background-color: #0079D3;
+  border-color: #0079D3;
+  color: aliceblue;
+  fill: #0079D3;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  opacity: 1;
+  margin-right: 15px;
+}

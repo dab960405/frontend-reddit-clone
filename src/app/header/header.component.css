@@ -1,0 +1,125 @@
+/* ========= HEADER GENERAL ========= */
+header {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+/* Navbar con transición de sombra (cuando se hace scroll se le puede añadir la clase .scrolled vía JS) */
+.navbar {
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ========= LOGO ========= */
+img {
+  text-decoration: none;
+}
+
+img {
+  max-height: 40px;
+  transition: transform 0.2s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* ========= BOTONES REUTILIZABLES ========= */
+.btn-outline-reddit,
+.userdetails {
+  background-color: transparent;
+  color: #0079D3;
+  border: 1px solid #0079D3;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  line-height: 24px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline-reddit:hover,
+.userdetails:hover {
+  background-color: rgba(0, 121, 211, 0.1);
+}
+
+/* Botón primario (Sign up) */
+.btn-reddit {
+  background-color: #0079D3;
+  color: #fff !important;
+  border: 1px solid #0079D3;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  line-height: 24px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  padding-right: 15px;
+  margin-right: 15px;
+}
+
+.btn-reddit:hover {
+  background-color: #005999;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ========= USER DETAILS (avatar + nombre) ========= */
+.userdetails {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid transparent; /* sutil borde */
+}
+
+.account-icon {
+  border-radius: 4px;
+  max-height: 24px;
+  max-width: 24px;
+  transition: box-shadow 0.2s ease;
+}
+
+.account-icon:hover {
+  box-shadow: 0 0 6px rgba(0, 121, 211, 0.5);
+}
+
+/* ========= DROPDOWN MENU ========= */
+.dropdown-menu {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease-in-out;
+}
+
+.show > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 10px 16px;
+  color: #333;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #0079D3;
+  color: #fff;
+  border-radius: 4px;
+}
