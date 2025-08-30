@@ -1,0 +1,147 @@
+/* Estilos mejorados para la lista de subreddits */
+.container {
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0 -15px;
+}
+
+.col-md-9 {
+  flex: 1;
+  min-width: 0;
+}
+
+.col-md-3 {
+  flex: 0 0 300px;
+  max-width: 300px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1b;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #0079d3;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+li {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  border-color: #0079d3;
+}
+
+a {
+  color: #0079d3;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+a:before {
+  content: "r/";
+  color: #ff4500;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+a:hover {
+  color: #0069c2;
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 24px 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .row {
+    flex-direction: column;
+  }
+  
+  .col-md-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  li {
+    padding: 12px;
+  }
+  
+  a {
+    font-size: 1rem;
+  }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  h2 {
+    color: #d7dadc;
+    border-bottom-color: #0079d3;
+  }
+  
+  li {
+    background-color: #1a1a1b;
+    border-color: #343536;
+  }
+  
+  li:hover {
+    border-color: #0079d3;
+  }
+  
+  a {
+    color: #4fbcff;
+  }
+  
+  a:hover {
+    color: #3ca5ff;
+  }
+  
+  a:before {
+    color: #ff4500;
+  }
+  
+  hr {
+    background-color: #343536;
+  }
+}

@@ -1,3 +1,164 @@
 .register-section {
-  margin: 100px;
+  margin: 80px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  color: white;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.card-header h4 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  border: 2px solid #e1e5ee;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: auto;
+  width: 100%;
+}
+
+.form-control:focus {
+  border-color: #4776E6;
+  box-shadow: 0 0 0 3px rgba(71, 118, 230, 0.15);
+  outline: none;
+}
+
+label {
+  font-weight: 500;
+  color: #2d3748;
+  padding-top: 10px;
+}
+
+label::after {
+  content: '*';
+  color: #e53e3e;
+  margin-left: 4px;
+}
+
+.sign-up {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(71, 118, 230, 0.2);
+}
+
+.sign-up:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(71, 118, 230, 0.3);
+}
+
+.sign-up:active {
+  transform: translateY(0);
+}
+
+.sign-up:focus {
+  outline: 3px solid rgba(71, 118, 230, 0.4);
+}
+
+a {
+  color: #4776E6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #3558c7;
+  text-decoration: underline;
+}
+
+.form-group span {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+.registration-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.registration-actions span {
+  margin-left: 15px;
+  color: #4a5568;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Validación visual para campos */
+.form-control.ng-invalid.ng-touched {
+  border-color: #e53e3e;
+}
+
+.form-control.ng-valid.ng-touched {
+  border-color: #38a169;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .register-section {
+    margin: 40px 15px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .col-md-4.text-md-right {
+    text-align: left !important;
+    padding-bottom: 5px;
+  }
+  
+  .registration-actions {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .registration-actions span {
+    margin-left: 0;
+  }
 }

@@ -1,25 +1,86 @@
-.votebox {    
+/* Componente de votación compacto */
+.vote-compact {
     display: flex;
-    text-align: center;
     flex-direction: column;
-    font-size: 1em;    
+    align-items: center;
+    gap: 2px;
+    padding: 4px;
+    min-width: 36px;
 }
 
-.votesection{
-    margin:0px;
-    background-color: #ffffff;
-}
-.upvote,.downvote {
+.vote-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 3px;
+    background: transparent;
     cursor: pointer;
-    border-radius: 2px solid;        
-}
-.upvote:hover {
-    color: green;
-}
-.downvote:hover {
-    color: red;
+    transition: all 0.15s ease;
+    padding: 0;
 }
 
-.votecount{
-    font-weight: bold;    
+.vote-btn:hover {
+    background-color: #f6f7f8;
+}
+
+.vote-btn:active {
+    transform: scale(0.92);
+}
+
+.vote-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(71, 118, 230, 0.3);
+}
+
+/* Upvote button */
+.upvote-btn:hover svg {
+    color: #ff4500;
+}
+
+.upvote-btn.active svg {
+    color: #ff4500;
+    fill: #ff4500;
+}
+
+/* Downvote button */
+.downvote-btn:hover svg {
+    color: #7193ff;
+}
+
+.downvote-btn.active svg {
+    color: #7193ff;
+    fill: #7193ff;
+}
+
+.vote-count {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a1a1b;
+    min-width: 24px;
+    text-align: center;
+    padding: 1px 0;
+    line-height: 1.2;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .vote-btn:hover {
+        background-color: #343536;
+    }
+    
+    .vote-count {
+        color: #d7dadc;
+    }
+}
+
+/* Responsive: horizontal en móviles */
+@media (max-width: 768px) {
+    .vote-compact {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+    }
 }

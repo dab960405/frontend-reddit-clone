@@ -1,41 +1,229 @@
-.post{
-    --post-line-color: #ccc;    
-    border: 1px solid #ccc;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    background-color: rgba(255,255,255,0.8);
-    color: #878A8C;
-    position: relative;
-    border-radius: 4px;
-    padding:5px;
+/* Estilos mejorados para la lista de posts */
+.post {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  margin: 16px 0;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  overflow: visible;
 }
 
-.btnCommments{
-    border-radius: 2px solid;
-    color: #878A8C;
-    opacity: 1;
+.post:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
-.btnCommments:hover{
-    opacity: 0.65;
-    cursor: pointer;
+.subreddit-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #7c7c7c;
 }
 
-.post-title{
-    font-size: 28px;
-    font-weight: bold;
-    opacity: 1;
+.subreddit-text {
+  font-weight: 600;
 }
 
-.posturl, .postname{    
-    color: black;
+.posturl {
+  color: #0079d3;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.subreddit-text{
-    font-weight: bold;
+.posturl:hover {
+  color: #0069c2;
+  text-decoration: underline;
 }
 
-.post-text{
-    margin-top: 10px;
+.username {
+  color: #7c7c7c;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.username:hover {
+  color: #0079d3;
+}
+
+.post-title {
+  margin: 12px 0;
+}
+
+.postname {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1b;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  display: block;
+}
+
+.postname:hover {
+  color: #0079d3;
+}
+
+.post-text {
+  margin: 16px 0;
+  line-height: 1.6;
+  color: #1c1c1c;
+  font-size: 1rem;
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.post-text:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, white);
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.btnCommments {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #878A8C;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btnCommments:hover {
+  background-color: #f6f7f8;
+  color: #0079d3;
+  opacity: 1;
+}
+
+.login {
+  padding: 8px 16px;
+  background-color: #0079d3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login:hover {
+  background-color: #0069c2;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 16px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .post {
+    padding: 16px;
+    flex-direction: column;
+  }
+  
+  .post-title {
+    margin: 8px 0;
+  }
+  
+  .postname {
+    font-size: 1.3rem;
+  }
+  
+  .post-actions {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .login {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .post {
+    background-color: #1a1a1b;
+    border-color: #343536;
+    color: #d7dadc;
+  }
+  
+  .subreddit-info {
+    color: #b0b0b0;
+  }
+  
+  .posturl {
+    color: #4fbcff;
+  }
+  
+  .posturl:hover {
+    color: #3ca5ff;
+  }
+  
+  .username {
+    color: #b0b0b0;
+  }
+  
+  .username:hover {
+    color: #4fbcff;
+  }
+  
+  .postname {
+    color: #d7dadc;
+  }
+  
+  .postname:hover {
+    color: #4fbcff;
+  }
+  
+  .post-text {
+    color: #d7dadc;
+  }
+  
+  .post-text:after {
+    background: linear-gradient(to bottom, transparent, #1a1a1b);
+  }
+  
+  .post-actions {
+    border-top-color: #343536;
+  }
+  
+  .btnCommments:hover {
+    background-color: #343536;
+    color: #4fbcff;
+  }
+  
+  hr {
+    background-color: #343536;
+  }
 }

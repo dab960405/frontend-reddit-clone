@@ -1,11 +1,24 @@
-<div class="sidebar-view-subreddit">
-    <div style="color: black; font-weight: bold">Browse Subreddits</div>
-    <hr />
-    <span *ngFor="let subreddit of subreddits">
-        <span class="subreddit-text"><a href="/view-subreddit/{{subreddit.id}}">{{subreddit.name}}</a></span>
-        <hr />
-    </span>
-    <div style="text-align: center" *ngIf="displayViewAll">
-        <a style="font-weight: bold" routerLink="/list-subreddits">View All</a>
+<div class="subreddit-sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card-header">Browse Subreddits</div>
+    <div class="sidebar-card-body">
+      <div class="subreddit-list">
+        <div *ngFor="let subreddit of subreddits" class="subreddit-item">
+          <a class="subreddit-link" href="/view-subreddit/{{subreddit.id}}">
+            <span class="subreddit-icon">r/</span>
+            <span class="subreddit-name">{{subreddit.name}}</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="view-all-container" *ngIf="displayViewAll">
+        <a class="view-all-link" routerLink="/list-subreddits">
+          <span>View All</span>
+          <svg class="view-all-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
     </div>
+  </div>
 </div>

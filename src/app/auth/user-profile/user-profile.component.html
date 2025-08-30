@@ -1,28 +1,54 @@
-<div class="container">
-  <div>
-    Welcome <b>{{name}}</b>.<br /> You have posted <b>{{postLength}}</b> time(s) and commented
-    <b>{{commentLength}}</b> time(s).
-    You can check your post and comment history below.
-  </div>
-  <hr />
-  <div>
-    Your Posts:
-  </div>
-  <app-post-tile [posts]="posts"></app-post-tile>
-  <hr />
-  <div>
-    Your Comments:
-  </div>
-  <div *ngFor="let comment of comments">
-    <div class="comment">
-      <div class="username">
-        <a routerLink="/user/comment.username">{{comment.userName}}</a>
+<div class="profile-container">
+  <section class="profile-header" aria-labelledby="profile-title">
+    <h2 id="profile-title">Welcome <b>{{name}}</b></h2>
+    <p>You can check your post and comment history below.</p>
+    
+    <div class="profile-stats">
+      <div class="stat-item">
+        <span class="stat-value">{{postLength}}</span>
+        <span class="stat-label">Posts</span>
       </div>
-      <div>
-        <p>{{comment.duration}}</p>
+      <div class="stat-item">
+        <span class="stat-value">{{commentLength}}</span>
+        <span class="stat-label">Comments</span>
       </div>
-      <b>{{comment.text}}</b>
     </div>
-    <hr />
-  </div>
+  </section>
+  
+  <div class="section-divider" role="separator" aria-hidden="true"></div>
+  
+  <section class="posts-section" aria-labelledby="posts-title">
+    <h3 id="posts-title" class="section-title">Your Posts</h3>
+    <app-post-tile [posts]="posts"></app-post-tile>
+    
+    <div *ngIf="!posts || posts.length === 0" class="empty-state">
+      <p>You haven't created any posts yet.</p>
+    </div>
+  </section>
+  
+  <div class="section-divider" role="separator" aria-hidden="true"></div>
+  
+  <section class="comments-section" aria-labelledby="comments-title">
+    <h3 id="comments-title" class="section-title">Your Comments</h3>
+    
+    <div class="comments-list">
+      <div *ngFor="let comment of comments" class="comment-card">
+        <div class="comment-header">
+          <div class="username">
+            <a routerLink="/user/comment.username">{{comment.userName}}</a>
+          </div>
+          <div class="comment-meta">
+            <p>{{comment.duration}}</p>
+          </div>
+        </div>
+        <div class="comment-text">
+          <b>{{comment.text}}</b>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="!comments || comments.length === 0" class="empty-state">
+      <p>You haven't made any comments yet.</p>
+    </div>
+  </section>
 </div>

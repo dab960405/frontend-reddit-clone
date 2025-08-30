@@ -1,0 +1,286 @@
+.reddit-body {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.content-row {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  align-items: flex-start;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0; /* Crucial para evitar desbordamiento en flex items */
+  overflow: hidden; /* Contiene elementos hijos */
+}
+
+.sidebar-column {
+  width: 312px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 20px; /* Mantiene la sidebar visible al hacer scroll */
+}
+
+/* Estilos para posts - Prevención de desbordamiento */
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-item {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden; /* Contiene el contenido dentro del post */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.post-content {
+  padding: 16px;
+  word-wrap: break-word; /* Rompe palabras largas */
+  overflow-wrap: break-word; /* Alternativa moderna */
+}
+
+.post-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1b;
+  line-height: 1.4;
+}
+
+.post-text {
+  color: #4a5568;
+  line-height: 1.5;
+  max-height: 200px; /* Altura máxima antes de truncar */
+  overflow: hidden;
+  position: relative;
+}
+
+.post-text.expanded {
+  max-height: none; /* Para texto expandido */
+}
+
+.post-text:not(.expanded)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, white);
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #4776E6;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 5px 0;
+  margin-top: 8px;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
+.post-media {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+/* Sidebar styles - Prevención de desbordamiento */
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden; /* Contiene el contenido dentro de la tarjeta */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  max-height: 400px; /* Altura máxima para la sidebar */
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-card-header {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  color: white;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  flex-shrink: 0; /* Evita que el encabezado se reduzca */
+}
+
+.sidebar-card-body {
+  padding: 16px;
+  overflow-y: auto; /* Scroll interno si el contenido es muy largo */
+  flex-grow: 1; /* Ocupa el espacio disponible */
+}
+
+.sidebar-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f1f1;
+  word-wrap: break-word;
+}
+
+.sidebar-item:last-child {
+  border-bottom: none;
+}
+
+.sidebar-link {
+  color: #4776E6;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  color: #3558c7;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .content-row {
+    flex-direction: column;
+  }
+  
+  .sidebar-column {
+    width: 100%;
+    position: static; /* Elimina sticky en móviles */
+  }
+  
+  .sidebar-container {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+  }
+  
+  .sidebar-card {
+    min-width: 280px;
+    flex-shrink: 0;
+    max-height: 300px; /* Altura reducida en tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .reddit-body {
+    padding: 10px 0;
+  }
+  
+  .main-container {
+    padding: 0 10px;
+  }
+  
+  .sidebar-container {
+    flex-direction: column;
+  }
+  
+  .sidebar-card {
+    min-width: auto;
+    max-height: none; /* Altura automática en móviles */
+  }
+  
+  .post-text {
+    max-height: 150px; /* Altura máxima reducida en móviles */
+  }
+}
+
+/* Scrollbar personalizado para sidebar */
+.sidebar-card-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-card-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.sidebar-card-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.sidebar-card-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-content,
+.sidebar-column {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .reddit-body {
+    background-color: #1a1a1b;
+    color: #d7dadc;
+  }
+  
+  .post-item,
+  .sidebar-card {
+    background: #272729;
+    border-color: #343536;
+  }
+  
+  .post-title {
+    color: #d7dadc;
+  }
+  
+  .post-text {
+    color: #c8cbcd;
+  }
+  
+  .post-text:not(.expanded)::after {
+    background: linear-gradient(to bottom, transparent, #272729);
+  }
+  
+  .sidebar-card-body::-webkit-scrollbar-track {
+    background: #343536;
+  }
+  
+  .sidebar-card-body::-webkit-scrollbar-thumb {
+    background: #575757;
+  }
+  
+  .sidebar-card-body::-webkit-scrollbar-thumb:hover {
+    background: #6b6b6b;
+  }
+  
+  .sidebar-item {
+    border-bottom-color: #343536;
+  }
+}

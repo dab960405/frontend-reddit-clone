@@ -1,77 +1,165 @@
-.btnCreatePost,
-.btnCreateSubreddit {
-  margin-top: 5px;
+/* Estilos mejorados para el componente de creación de post */
+.create-post-container {
+  margin: 16px 0;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .post-form {
-  margin: 2px;
+  margin: 0;
 }
 
-.comment-notification {
-  margin-top: 5px;
+.create-post-heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1a1a1b;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.create-post-container {
-  margin-top: 10px;
-  --post-line-color: #ccc;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #878A8C;
-  position: relative;
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e5e5;
   border-radius: 4px;
-  padding: 5px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  margin-top: 8px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0079d3;
+  box-shadow: 0 0 0 2px rgba(0, 121, 211, 0.2);
+}
+
+/* Estilos para el editor de texto enriquecido */
+tox-tinymce {
+  border-radius: 4px !important;
+  border: 1px solid #e5e5e5 !important;
+  margin-top: 8px;
+}
+
+/* Contenedor de botones mejorado */
+.float-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .btnDiscard {
-    fill: #0079D3;
-    border: 1px solid;
-    border-radius: 4px;
-    text-align: center;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .5px;
-    line-height: 24px;
-    text-transform: uppercase;
-    padding: 3px 16px;
-    opacity: 1;
-    width: 288px;
-    height: 34px;
-    margin-top: 5px;
-    color: #0079D3;
-    background-color: transparent;
-  }
+  padding: 8px 20px;
+  border: 1px solid #0079d3;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #0079d3;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
 
-.create-post-heading {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 22px;
-  color: #1c1c1c;
-  -ms-flex: 1;
-  flex: 1;
+.btnDiscard:hover {
+  background-color: rgba(0, 121, 211, 0.1);
 }
 
 .btnCreatePost {
-    background-color: #0079D3;
-    border-color: #0079D3;
-    color: aliceblue;
-    fill: #0079D3;
-    border: 1px solid;
-    border-radius: 4px;
-    text-align: center;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .5px;
-    line-height: 24px;
-    text-transform: uppercase;
-    padding: 3px 16px;
-    opacity: 1;
-    width: 288px;
-    height: 34px;
+  padding: 8px 20px;
+  border: 1px solid #0079d3;
+  border-radius: 4px;
+  background-color: #0079d3;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.btnCreatePost:hover {
+  background-color: #0069c2;
+  border-color: #0069c2;
+}
+
+/* Estilos para el selector de subreddit */
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 35px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .create-post-container {
+    padding: 16px;
+    margin: 12px 0;
   }
+  
+  .float-right {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .btnDiscard,
+  .btnCreatePost {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .create-post-container {
+    background-color: #1a1a1b;
+    border-color: #343536;
+    color: #d7dadc;
+  }
+  
+  .create-post-heading {
+    color: #d7dadc;
+    border-bottom-color: #343536;
+  }
+  
+  .form-control {
+    background-color: #272729;
+    border-color: #343536;
+    color: #d7dadc;
+  }
+  
+  .form-control:focus {
+    border-color: #0079d3;
+  }
+  
+  .btnDiscard {
+    color: #4fbcff;
+    border-color: #4fbcff;
+  }
+  
+  .btnDiscard:hover {
+    background-color: rgba(79, 188, 255, 0.1);
+  }
+  
+  .btnCreatePost {
+    background-color: #0079d3;
+    border-color: #0079d3;
+  }
+  
+  .btnCreatePost:hover {
+    background-color: #0069c2;
+    border-color: #0069c2;
+  }
+}

@@ -1,11 +1,12 @@
-<div class="sidebar">
-    <img src="https://www.redditstatic.com/desktop2x/img/id-cards/home-banner@2x.png">
-    <div style="text-align: center; font-size: 1em">Welcome to Spring Reddit Clone home page. Come here to
-        check in with your favorite subreddits.</div>
-    <div style="text-align: center">
-        <button class="btnCreatePost" (click)="goToCreatePost()">Create Post</button>
+<div class="sidebar-card welcome-card">
+  <div class="sidebar-card-body">
+    <img src="../../../assets/img/assets_task_01k3sx387nf5bbr1wnzvfdj7gz_1756437388_img_0.webp" alt="Welcome to Spring Reddit Clone" class="sidebar-banner">
+    <div class="welcome-message">
+      Welcome to Spring Reddit Clone home page. Come here to check in with your favorite subreddits.
     </div>
-    <div style="text-align: center">
-        <button class="btnCreateSubreddit" (click)="goToCreateSubreddit()">Create Subreddit</button>
+    <div class="sidebar-actions">
+      <button class="btn-create-post" (click)="goToCreatePost()">Create Post</button>
+      <button class="btn-create-subreddit" (click)="goToCreateSubreddit()">Create Subreddit</button>
     </div>
+  </div>
 </div>

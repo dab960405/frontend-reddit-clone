@@ -1,14 +1,64 @@
 <div class="reddit-body">
-  <div class="container">
-    <div class="row">
-      <hr />
-      <div class="col-md-9">
-        <app-post-tile [posts]="posts"></app-post-tile>
+  <main class="main-container" aria-label="Main content">
+    <div class="content-row">
+      <div class="main-content" aria-label="Posts">
+        <div class="section-divider" role="separator" aria-hidden="true"></div>
+        <div class="posts-container">
+          <!-- Ejemplo de estructura de post -->
+          <div class="post-item">
+            <div class="post-content">
+              <h3 class="post-title"> quote by the English writer Samuel Johnson (1709–1784)</h3>
+              <div class="post-text">
+                <p>Great works are performed not by strength, but perseverance
+                </p>
+                <!-- Más contenido -->
+              </div>
+              <img src="../../assets/img/599f68381f000019001aace1.webp" alt="Descripción de la imagen" class="post-media">
+            </div>
+          </div>
+          
+          <!-- Componente de posts -->
+          <app-post-tile [posts]="posts"></app-post-tile>
+        </div>
       </div>
-      <div class="col-md-3">
-        <app-side-bar></app-side-bar>
-        <app-subreddit-side-bar></app-subreddit-side-bar>
-      </div>
+      
+      <aside class="sidebar-column" aria-label="Sidebar">
+        <div class="sidebar-container">
+          <div class="sidebar-card">
+            <div class="sidebar-card-header">Community Actions</div>
+            <div class="sidebar-card-body">
+              <div class="sidebar-item">
+                <a href="#" class="sidebar-link">Crear publicación</a>
+              </div>
+              <div class="sidebar-item">
+                <a href="#" class="sidebar-link">Unirse a comunidad</a>
+              </div>
+              <div class="sidebar-item">
+                <a href="#" class="sidebar-link">Configuración</a>
+              </div>
+              <!-- Más elementos -->
+              <app-side-bar></app-side-bar>
+            </div>
+          </div>
+          
+          <div class="sidebar-card">
+            <div class="sidebar-card-header">Subreddits</div>
+            <div class="sidebar-card-body">
+              <div class="sidebar-item">
+                <a href="#" class="sidebar-link">r/Programación</a>
+              </div>
+              <div class="sidebar-item">
+                <a href="#" class="sidebar-link">r/Angular</a>
+              </div>
+              <div class="sidebar-item">
+                <a href="#" class="sidebar-link">r/DesarrolloWeb</a>
+              </div>
+              <!-- Más elementos -->
+              <app-subreddit-side-bar></app-subreddit-side-bar>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
-  </div>
+  </main>
 </div>
