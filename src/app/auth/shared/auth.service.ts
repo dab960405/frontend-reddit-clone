@@ -17,6 +17,7 @@ export class AuthService {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<string> = new EventEmitter();
 
+  // 👇 ahora la base apunta a /api/auth (para producción)
   private readonly apiUrl = `${environment.apiUrl}/auth`;
 
   constructor(
@@ -37,7 +38,7 @@ export class AuthService {
       .post<LoginResponse>(`${this.apiUrl}/login`, loginRequestPayload)
       .pipe(
         map(data => {
-          // Guardar todo en minúsculas
+          // Guardar tokens y datos en storage
           this.localStorage.store('authenticationtoken', data.authenticationToken);
           this.localStorage.store('username', data.username);
           this.localStorage.store('refreshtoken', data.refreshToken);
@@ -61,6 +62,8 @@ export class AuthService {
       username: this.getUserName()
     };
 
+    // 👇 fix: usamos `${this.apiUrl}/refresh/token` que resuelve a
+    // https://backend.../api/auth/refresh/token
     return this.httpClient.post<LoginResponse>(
       `${this.apiUrl}/refresh/token`,
       refreshTokenPayload
