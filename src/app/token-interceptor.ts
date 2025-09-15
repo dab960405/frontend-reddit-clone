@@ -19,8 +19,8 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
 
-    // No añadir token en refresh ni login
-    if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1 || req.url.indexOf('signup') !== -1) {
+    // ❌ No añadir token en signup/login/refresh
+    if (req.url.includes('/auth/login') || req.url.includes('/auth/signup') || req.url.includes('/auth/refresh/token')) {
       return next.handle(req);
     }
 
@@ -29,16 +29,16 @@ export class TokenInterceptor implements HttpInterceptor {
     if (jwtToken) {
       return next.handle(this.addToken(req, jwtToken)).pipe(
         catchError(error => {
-          if (error instanceof HttpErrorResponse &&
-            (error.status === 401 || error.status === 403)) {
-            // manejar expiración token
+          if (error instanceof HttpErrorResponse && (error.status === 401 || error.status === 403)) {
+            // Token expirado → intentar refresh
             return this.handleAuthErrors(req, next);
           } else {
-            return throwError(error);
+            return throwError(() => error);
           }
         })
       );
     }
+
     return next.handle(req);
   }
 
@@ -52,37 +52,33 @@ export class TokenInterceptor implements HttpInterceptor {
       return this.authService.refreshToken().pipe(
         switchMap((refreshTokenResponse: LoginResponse) => {
           this.isTokenRefreshing = false;
-          this.refreshTokenSubject
-            .next(refreshTokenResponse.authenticationToken);
+          this.refreshTokenSubject.next(refreshTokenResponse.authenticationToken);
 
-          // 🚀 Persistir nuevo token
-          this.authService.localStorage.clear('authenticationtoken');
-          this.authService.localStorage.store('authenticationtoken',
-            refreshTokenResponse.authenticationToken);
+          // 🚀 Guardar nuevo token
+          this.authService.localStorage.store('authenticationtoken', refreshTokenResponse.authenticationToken);
+          this.authService.localStorage.store('expiresat', refreshTokenResponse.expiresAt);
 
-          this.authService.localStorage.clear('expiresat');
-          this.authService.localStorage.store('expiresat',
-            refreshTokenResponse.expiresAt);
-
-          return next.handle(this.addToken(req,
-            refreshTokenResponse.authenticationToken));
+          return next.handle(this.addToken(req, refreshTokenResponse.authenticationToken));
+        }),
+        catchError(err => {
+          this.isTokenRefreshing = false;
+          // 🔴 podría forzar logout si el refresh falla
+          this.authService.logout();
+          return throwError(() => err);
         })
       );
     } else {
       return this.refreshTokenSubject.pipe(
         filter(token => token !== null),
         take(1),
-        switchMap(jwt => {
-          return next.handle(this.addToken(req, jwt));
-        })
+        switchMap(jwt => next.handle(this.addToken(req, jwt)))
       );
     }
   }
 
   addToken(req: HttpRequest<any>, jwtToken: any) {
     return req.clone({
-      headers: req.headers.set('Authorization',
-        'Bearer ' + jwtToken)
+      headers: req.headers.set('Authorization', 'Bearer ' + jwtToken)
     });
   }
 }
