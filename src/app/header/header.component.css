@@ -10,12 +10,12 @@ header {
 .auth-buttons {
   display: flex;
   gap: 0.75rem;         /* Espaciado entre botones */
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: center;
-  flex-wrap: wrap;      /* Si no caben en una línea, que bajen */
+  flex-wrap: nowrap;    /* No se apilan nunca */
 }
 
-/* Botón base */
+/* Estilo base de botones */
 .auth-buttons a {
   text-decoration: none;
   font-weight: 600;
@@ -24,9 +24,7 @@ header {
   font-size: 0.95rem;
   transition: all 0.3s ease;
   text-align: center;
-  min-width: 100px;      /* Ancho mínimo para que no se encoja */
-  flex: 1;               /* Se adaptan al espacio disponible */
-  max-width: 150px;      /* Para no crecer demasiado */
+  min-width: 100px;
 }
 
 /* Estilos específicos */
@@ -52,17 +50,28 @@ header {
   border-color: #0056b3;
 }
 
-/* Responsive: pantallas pequeñas */
-@media (max-width: 576px) {
-  .auth-buttons {
-    width: 100%;
-    justify-content: center;  /* Centrado en móviles */
-    gap: 0.5rem;
-  }
-
+/* 🔽 Responsive: ajustamos tamaño progresivamente */
+@media (max-width: 992px) {   /* Tablets grandes */
   .auth-buttons a {
-    flex: 1 1 100%;
-    max-width: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 768px) {   /* Tablets pequeñas */
+  .auth-buttons a {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 576px) {   /* Celulares */
+  .auth-buttons a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 70px;
   }
 }
 
