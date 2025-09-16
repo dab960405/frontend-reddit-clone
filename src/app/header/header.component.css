@@ -51,20 +51,7 @@ header {
 }
 
 /* ========= BOTONES REUTILIZABLES ========= */
-.btn-outline-reddit,
-.userdetails {
-  background-color: transparent;
-  color: #3498db;
-  border: 1px solid #3498db;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 0.25rem 1rem;
-  line-height: 1.5;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
+
 
 .btn-outline-reddit:hover,
 .userdetails:hover {
