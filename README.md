@@ -1,7 +1,7 @@
 Reddit Clone - Frontend
 A Reddit clone built with Angular that replicates the main functionalities of the popular social media platform.
 🚀 Demo
-🌐 View Live Application (replace with your Vercel URL)
+🌐 View Live Application https://frontend-reddit-clone-o23t.vercel.app/
 📋 Features
 
 Home Page - Main view with posts feed
@@ -84,17 +84,7 @@ ng test
 
 # End-to-end tests
 ng e2e
-📁 Project Structure
-src/
-├── app/
-│   ├── components/     # Reusable components
-│   ├── pages/         # Main pages
-│   ├── services/      # Services for API calls
-│   ├── models/        # Interfaces and models
-│   ├── guards/        # Authentication guards
-│   └── shared/        # Shared modules
-├── assets/            # Static resources
-└── environments/      # Environment configurations
+
 🔧 Configuration
 Environment Variables
 For local development, configure src/environments/environment.ts:
