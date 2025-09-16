@@ -6,6 +6,43 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* ====== BOTONES LOGIN / SIGN UP ====== */
+a.login,
+a.sign-up {
+  display: inline-block !important;       /* Fuerza a comportarse como botones */
+  padding: 0.5rem 1rem !important;        /* Mismo padding para ambos */
+  font-size: 0.9rem !important;           /* Igual tamaño de letra */
+  font-weight: 600 !important;            /* Texto consistente */
+  border-radius: 5px !important;          /* Bordes redondeados */
+  text-decoration: none !important;       /* Quita subrayado de los <a> */
+  transition: all 0.2s ease !important;
+  min-width: 90px !important;             /* Para que ambos tengan base igual */
+  text-align: center !important;          /* Texto centrado dentro del botón */
+  margin-left: 0.5rem !important;         /* Separación entre botones */
+}
+
+/* Estilo base común */
+a.login,
+a.sign-up {
+  border: 1px solid #3498db !important;
+  color: #3498db !important;
+  background-color: #fff !important;
+}
+
+/* Efecto hover */
+a.login:hover,
+a.sign-up:hover {
+  background-color: #3498db !important;
+  color: #fff !important;
+}
+
+/* ====== Asegurar alineación a la derecha ====== */
+.header-buttons {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
 /* Navbar con transición de sombra */
 .navbar {
   transition: box-shadow 0.3s ease;
