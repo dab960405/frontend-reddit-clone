@@ -43,6 +43,65 @@ a.sign-up:hover {
   align-items: center !important;
 }
 
+/* ====== CONTENEDOR DE BOTONES LOGIN / SIGN-UP ====== */
+.header-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem; /* espacio entre botones */
+  flex-wrap: wrap; /* permite que salten de línea si no caben */
+}
+
+/* ====== ESTILO UNIFORME PARA LOS BOTONES ====== */
+a.login,
+a.sign-up {
+  display: inline-flex;          /* Los hace flexibles y centrados */
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  
+  min-width: 100px;              /* Garantiza tamaño mínimo igual */
+  flex: 1 1 auto;                /* Se ajustan si hay espacio */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* ====== COLORES POR DEFECTO ====== */
+a.login,
+a.sign-up {
+  border: 1px solid #3498db;
+  color: #3498db;
+  background-color: #fff;
+}
+
+/* ====== HOVER INFORMATIVO ====== */
+a.login:hover,
+a.sign-up:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* ====== RESPONSIVIDAD ====== */
+/* En pantallas pequeñas los botones se apilan */
+@media (max-width: 576px) {
+  .header-buttons {
+    flex-direction: column;        /* uno bajo otro */
+    align-items: stretch;          /* que ocupen todo el ancho */
+  }
+
+  a.login,
+  a.sign-up {
+    width: 100%;                  /* ancho completo en móvil */
+    min-width: unset;              /* anula mínimo fijo */
+    margin: 0.3rem 0;             /* espacio vertical entre botones */
+  }
+}
 /* Navbar con transición de sombra */
 .navbar {
   transition: box-shadow 0.3s ease;
