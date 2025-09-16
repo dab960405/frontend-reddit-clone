@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class SubredditService {
   
   // 2. Define la URL base usando environment.apiUrl
-  private apiUrl = `${environment.apiUrl}/api/subreddit`;
+  private apiUrl = `${environment.apiUrl}/subreddit`;
 
   constructor(private http: HttpClient) { }
 
