@@ -29,7 +29,8 @@ RESTful APIs
 JWT Authentication
 User, post, and community management
 
-Backend Repository: backend-reddit-clone
+Backend Repository: https://github.com/dab960405/backend-reddit-clone
+
 🚀 Deployment
 The application is deployed on Vercel, leveraging its excellent Angular integration and global CDN for optimal performance.
 Production Stack
