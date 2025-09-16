@@ -98,6 +98,7 @@ typescriptexport const environment = {
   production: true,
   apiUrl: 'https://your-backend.render.com/api'
 };
+
 🚀 Deployment on Vercel
 
 Connect your repository with Vercel
