@@ -19,10 +19,10 @@
                     {{username}}
                 </button>
             </div>            
-            <div *ngIf="!isLoggedIn">
-                <a routerLink="/sign-up" class="float-right-bottom-sign-up mr-2">Sign up</a>
-                <a routerLink="/login" class="float-right-bottom-login mr-2">Login</a>
-            </div>
+            <div *ngIf="!isLoggedIn" class="auth-buttons ml-3">
+  <a routerLink="/sign-up" class="btn-signup">Sign up</a>
+  <a routerLink="/login" class="btn-login">Login</a>
+</div>
         </div>
     </nav>
 </header>

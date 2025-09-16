@@ -6,6 +6,66 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Contenedor de botones */
+.auth-buttons {
+  display: flex;
+  gap: 0.75rem;         /* Espaciado entre botones */
+  justify-content: flex-end; 
+  align-items: center;
+  flex-wrap: wrap;      /* Si no caben en una línea, que bajen */
+}
+
+/* Botón base */
+.auth-buttons a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 100px;      /* Ancho mínimo para que no se encoja */
+  flex: 1;               /* Se adaptan al espacio disponible */
+  max-width: 150px;      /* Para no crecer demasiado */
+}
+
+/* Estilos específicos */
+.btn-signup {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.btn-signup:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-login {
+  background-color: #007bff;
+  color: #fff;
+  border: 2px solid #007bff;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Responsive: pantallas pequeñas */
+@media (max-width: 576px) {
+  .auth-buttons {
+    width: 100%;
+    justify-content: center;  /* Centrado en móviles */
+    gap: 0.5rem;
+  }
+
+  .auth-buttons a {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+}
+
 /* Navbar con transición de sombra */
 .navbar {
   transition: box-shadow 0.3s ease;
