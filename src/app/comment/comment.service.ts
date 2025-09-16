@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class CommentService {
 
   // 2. Usa la URL del environment en lugar de localhost
-  private apiUrl = `${environment.apiUrl}/api/comments`;
+  private apiUrl = `${environment.apiUrl}/comments`;
 
   constructor(private httpClient: HttpClient) { }
 
