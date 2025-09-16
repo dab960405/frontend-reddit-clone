@@ -1,27 +1,123 @@
-# AngularRedditClone
+Reddit Clone - Frontend
+A Reddit clone built with Angular that replicates the main functionalities of the popular social media platform.
+🚀 Demo
+🌐 View Live Application (replace with your Vercel URL)
+📋 Features
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
+Home Page - Main view with posts feed
+Post View - Detailed page for each post with comments
+Create Post - Form to create new posts
+Create Subreddit - Create new communities
+User Profile - Personal profile page
+Authentication System - User login and registration
+Voting System - Upvotes and downvotes on posts and comments
 
-## Development server
+🛠️ Technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Angular (CLI v8.3.4)
+TypeScript
+RxJS for observables handling
+Angular Router for navigation
+Angular Forms for reactive forms
+HTTP Client for API communication
 
-## Code scaffolding
+🏗️ Architecture
+This frontend communicates with a Spring Boot backend that provides:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+RESTful APIs
+JWT Authentication
+User, post, and community management
 
-## Build
+Backend Repository: backend-reddit-clone
+🚀 Deployment
+The application is deployed on Vercel, leveraging its excellent Angular integration and global CDN for optimal performance.
+Production Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Frontend: Vercel
+Backend: Render
+Database: Aiven (MySQL)
 
-## Running unit tests
+💻 Local Development
+Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Node.js (v12 or higher)
+npm or yarn
+Angular CLI
 
-## Running end-to-end tests
+Installation
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Clone the repository
 
-## Further help
+bashgit clone https://github.com/dab960405/frontend-reddit-clone.git
+cd frontend-reddit-clone
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Install dependencies
+
+bashnpm install
+
+Configure environment variables
+
+bash# Create an environment.ts file in src/environments/
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8080/api' // Your local backend URL
+};
+
+Start the development server
+
+bashng serve
+
+Navigate to http://localhost:4200/
+
+Available Commands
+bash# Development server
+ng serve
+
+# Generate component
+ng generate component component-name
+
+# Production build
+ng build --prod
+
+# Run tests
+ng test
+
+# End-to-end tests
+ng e2e
+📁 Project Structure
+src/
+├── app/
+│   ├── components/     # Reusable components
+│   ├── pages/         # Main pages
+│   ├── services/      # Services for API calls
+│   ├── models/        # Interfaces and models
+│   ├── guards/        # Authentication guards
+│   └── shared/        # Shared modules
+├── assets/            # Static resources
+└── environments/      # Environment configurations
+🔧 Configuration
+Environment Variables
+For local development, configure src/environments/environment.ts:
+typescriptexport const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8080/api'
+};
+For production, configure src/environments/environment.prod.ts:
+typescriptexport const environment = {
+  production: true,
+  apiUrl: 'https://your-backend.render.com/api'
+};
+🚀 Deployment on Vercel
+
+Connect your repository with Vercel
+Configure environment variables in Vercel dashboard
+Vercel will automatically detect it's an Angular project
+Deployment will run automatically on each push to main
+
+🤝 Contributing
+
+Fork the project
+Create a feature branch (git checkout -b feature/AmazingFeature)
+Commit your changes (git commit -m 'Add some AmazingFeature')
+Push to the branch (git push origin feature/AmazingFeature)
+Open a Pull Request
