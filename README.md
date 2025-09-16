@@ -2,7 +2,9 @@ Reddit Clone - Frontend
 A Reddit clone built with Angular that replicates the main functionalities of the popular social media platform.
 🚀 Demo
 🌐 View Live Application https://frontend-reddit-clone-o23t.vercel.app/
+
 You can test it with the following users and passwords: user:123, user1:123, user7:123
+It will take around 1–2 minutes for the backend service to activate; please be patient. Sorry about that.
 
 📋 Features
 
