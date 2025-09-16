@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class VoteService {
 
   // 2. Define la URL base usando environment.apiUrl
-  private apiUrl = `${environment.apiUrl}/api/votes`;
+  private apiUrl = `${environment.apiUrl}/votes`;
 
   constructor(private http: HttpClient) { }
 
